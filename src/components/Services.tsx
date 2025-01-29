@@ -1,4 +1,4 @@
-import { Leaf, Spray, Home } from "lucide-react";
+import { Leaf, Home } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
@@ -6,7 +6,7 @@ const services = [
     title: "Puhastusteenused",
     description:
       "Professionaalne puhastusteenus nii era- kui äriklientidele. Tagame puhtad ja hooldatud pinnad.",
-    icon: Spray,
+    icon: Home,
   },
   {
     title: "Tänavakivide paigaldus",
