@@ -10,6 +10,14 @@ const Navbar = () => {
     { title: "Kontakt", href: "#contact" },
   ];
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-white shadow-md z-50">
       <div className="container mx-auto px-4">
@@ -21,13 +29,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.title}
-                href={item.href}
+                onClick={() => scrollToSection(item.href)}
                 className="text-gray-700 hover:text-primary transition-colors"
               >
                 {item.title}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -45,14 +53,13 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4">
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.title}
-                href={item.href}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-left py-2 px-4 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
               >
                 {item.title}
-              </a>
+              </button>
             ))}
           </div>
         )}

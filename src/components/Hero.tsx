@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="relative min-h-screen flex items-center bg-gradient-to-r from-gray-50 to-gray-100 pt-16">
       <div className="container mx-auto px-4">
@@ -17,14 +21,14 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90"
-              onClick={() => document.getElementById("contact")?.scrollIntoView()}
+              onClick={() => scrollToSection("contact")}
             >
               Küsi hinnapakkumist
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => document.getElementById("services")?.scrollIntoView()}
+              onClick={() => scrollToSection("services")}
             >
               Vaata teenuseid
             </Button>
