@@ -1,0 +1,15 @@
+name: BESTCLEAN Puhastusteenistus OÜ
+description: Professionaalne puhastusteenistus, mis pakub kinnisvara hooldus- ja puhastusteenuseid ning tegeleb tänavakivide ja haljastustöödega.
+services:
+  - Puhastusteenused
+  - Tänavakivide paigaldus
+  - Haljastustööd
+contact:
+  phone: +3725520870
+  email: kuldar.kutti@gmail.com
+  address: Metsa 1, 11162, Riisipere
+business:
+  registration: 11367881
+  vat: EE101244260
+social:
+  facebook: https://www.facebook.com/profile.php?id=100063555408871
