@@ -1,4 +1,4 @@
-import { Leaf, Home } from "lucide-react";
+import { Leaf, Home, BrickWall } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
@@ -12,7 +12,7 @@ const services = [
     title: "Tänavakivide paigaldus",
     description:
       "Kvaliteetne tänavakivide paigaldus ja hooldus. Loome kestvaid ja esteetilisi lahendusi.",
-    icon: Home,
+    icon: BrickWall,
   },
   {
     title: "Haljastustööd",
