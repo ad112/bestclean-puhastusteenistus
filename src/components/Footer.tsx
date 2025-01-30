@@ -27,7 +27,7 @@ const Footer = () => {
                 kuldar.kutti@gmail.com
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=100063555408871"
+                href="https://web.facebook.com/profile.php?id=100057623733066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors"
