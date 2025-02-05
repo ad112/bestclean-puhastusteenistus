@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -18,17 +20,52 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Päring saadetud!",
-      description: "Võtame teiega peagi ühendust.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      contact: formData.get('contact'),
+      service: formData.get('service'),
+      scope: formData.get('scope'),
+      comments: formData.get('comments'),
+      created_at: new Date().toISOString(),
+    };
+
+    try {
+      // Store in Supabase
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([data]);
+
+      if (error) throw error;
+
+      // Send email notification using Edge Function
+      const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          to: 'kuldar.kutti@gmail.com',
+          subject: `New Contact Form Submission: ${data.service}`,
+          ...data
+        }
+      });
+
+      if (emailError) throw emailError;
+
+      toast({
+        title: "Päring saadetud!",
+        description: "Võtame teiega peagi ühendust.",
+      });
+
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Viga!",
+        description: "Midagi läks valesti. Palun proovige hiljem uuesti.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
