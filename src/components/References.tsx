@@ -4,9 +4,9 @@ import { Star } from "lucide-react";
 const references = [
   {
     name: "Kristiina",
-    text: "Väga meeldiv koostöö. Töö sai tehtud kiiresti ja kvaliteetselt. Soovitan!",
-    project: "Koristusteenus",
-    date: "27.02.2024",
+    text: "Töö kiire ja korralik. Väga rahul.",
+    project: "Tänavakivi paigaldus",
+    date: "09.07.2024",
     rating: 5
   },
   {
