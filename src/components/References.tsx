@@ -3,24 +3,24 @@ import { Star } from "lucide-react";
 
 const references = [
   {
-    name: "Kristiina",
+    name: "Hange.ee klient",
+    text: "Kiire ja korralik töö, kahjuks kõike päris puhtaks ei saanud, aga tööga võib rahule jääda.",
+    project: "Akende pesu",
+    date: "01.11.2024",
+    rating: 5
+  },
+  {
+    name: "Hange.ee klient",
     text: "Töö kiire ja korralik. Väga rahul.",
     project: "Tänavakivi paigaldus",
     date: "09.07.2024",
     rating: 5
   },
   {
-    name: "Marika",
-    text: "Kiire ja kvaliteetne töö. Jäin väga rahule!",
-    project: "Koristusteenus",
-    date: "26.02.2024",
-    rating: 5
-  },
-  {
-    name: "Kristel",
-    text: "Väga hea teenus, soovitan!",
-    project: "Koristusteenus",
-    date: "23.02.2024",
+    name: "Hange.ee klient",
+    text: "Töö sai teostatud kiiresti. Hind oli väga mõistlik. Nädala pärast mõned kivid olid laiali valgunud aga mehed olid nõus tulema ja parandama. Haljastus kõnnitee ääres võiks olla veidi kvaliteetsem. Lubasid 2a garantiid.",
+    project: "Tänavakivi paigaldus Viimsis (16m2)",
+    date: "09.08.2023",
     rating: 5
   }
 ];
@@ -32,23 +32,31 @@ const References = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Klientide tagasiside</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {references.map((reference, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(reference.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+            <a 
+              href="https://www.hange.ee/ettevote/55769/"
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+              className="block hover:no-underline"
+            >
+              <Card className="hover:shadow-lg transition-shadow h-full">
+                <CardContent className="pt-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-1">
+                      {[...Array(reference.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 italic">{reference.text}</p>
+                    <div className="text-sm">
+                      <p className="font-semibold">{reference.name}</p>
+                      <p className="text-gray-500">{reference.project}</p>
+                      <p className="text-gray-400 text-xs mt-1">{reference.date}</p>
+                    </div>
                   </div>
-                  <p className="text-gray-600 italic">{reference.text}</p>
-                  <div className="text-sm">
-                    <p className="font-semibold">{reference.name}</p>
-                    <p className="text-gray-500">{reference.project}</p>
-                    <p className="text-gray-400 text-xs mt-1">{reference.date}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
