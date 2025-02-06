@@ -23,11 +23,11 @@ const Contact = () => {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      name: formData.get('name'),
-      contact: formData.get('contact'),
-      service: formData.get('service'),
-      scope: formData.get('scope'),
-      comments: formData.get('comments'),
+      name: formData.get('name')?.toString() || '',
+      contact: formData.get('contact')?.toString() || '',
+      service: formData.get('service')?.toString() || '',
+      scope: formData.get('scope')?.toString() || '',
+      comments: formData.get('comments')?.toString() || '',
       created_at: new Date().toISOString(),
     };
 
@@ -35,7 +35,7 @@ const Contact = () => {
       // Store in Supabase
       const { error } = await supabase
         .from('contact_submissions')
-        .insert([data]);
+        .insert(data);
 
       if (error) throw error;
 
