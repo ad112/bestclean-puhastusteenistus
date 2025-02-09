@@ -21,15 +21,21 @@ interface ContactRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log("Received request:", req.method);
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { to, subject, name, contact, service, scope, comments }: ContactRequest = await req.json();
+    const requestData = await req.json();
+    console.log("Received data:", requestData);
 
-    console.log("Sending contact form email with data:", { to, subject, name, contact, service, scope, comments });
+    const { to, subject, name, contact, service, scope, comments }: ContactRequest = requestData;
+
+    console.log("Processing contact form with data:", { to, subject, name, contact, service, scope, comments });
+    console.log("Using RESEND_API_KEY:", !!Deno.env.get("RESEND_API_KEY"));
 
     const emailResponse = await resend.emails.send({
       from: "Bestclean <onboarding@resend.dev>",
@@ -55,12 +61,23 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error sending contact form email:", error);
+    console.error("Detailed error in send-contact-email function:", {
+      error,
+      message: error.message,
+      stack: error.stack,
+    });
+
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: error.message,
+        details: error.stack 
+      }),
       {
         status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
+        headers: { 
+          "Content-Type": "application/json",
+          ...corsHeaders 
+        },
       }
     );
   }
