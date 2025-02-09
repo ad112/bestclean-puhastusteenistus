@@ -21,21 +21,26 @@ interface ContactRequest {
   comments?: string;
 }
 
-const handler = async (req: Request): Promise<Response> => {
-  console.log("Received request:", req.method);
-
+serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
-    return new Response('ok', { 
-      status: 200,
-      headers: {
-        ...corsHeaders,
-        'Allow': 'POST, OPTIONS',
-      }
+    return new Response(null, { 
+      status: 204,
+      headers: corsHeaders
     });
   }
 
   try {
+    if (req.method !== "POST") {
+      return new Response(JSON.stringify({ error: "Method not allowed" }), {
+        status: 405,
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders,
+        },
+      });
+    }
+
     const requestData = await req.json();
     console.log("Received data:", requestData);
 
@@ -88,6 +93,4 @@ const handler = async (req: Request): Promise<Response> => {
       }
     );
   }
-};
-
-serve(handler);
+});
