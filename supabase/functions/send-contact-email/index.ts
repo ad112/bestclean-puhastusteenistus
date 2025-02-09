@@ -5,10 +5,10 @@ import { Resend } from "npm:resend@2.0.0";
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "*",
-  "Access-Control-Max-Age": "86400",
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Max-Age': '86400',
 };
 
 interface ContactRequest {
@@ -26,9 +26,12 @@ const handler = async (req: Request): Promise<Response> => {
 
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
-    return new Response("ok", {
+    return new Response('ok', { 
       status: 200,
-      headers: corsHeaders
+      headers: {
+        ...corsHeaders,
+        'Allow': 'POST, OPTIONS',
+      }
     });
   }
 
