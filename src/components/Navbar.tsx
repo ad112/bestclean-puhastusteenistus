@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -7,7 +8,7 @@ const Navbar = () => {
   const menuItems = [
     { title: "Teenused", href: "#services" },
     { title: "Referentsid", href: "#references" },
-    { title: "Kontakt", href: "#contact" },
+    { title: "Kontakt", href: "#footer" },
   ];
 
   const scrollToSection = (href: string) => {
