@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("footer")}
             >
               Küsi hinnapakkumist
             </Button>
