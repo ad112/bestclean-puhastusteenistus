@@ -20,10 +20,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="text-2xl font-bold text-primary">
+          <a href="/" className="text-2xl font-bold text-primary flex items-center">
             Bestclean
           </a>
 
@@ -33,7 +33,7 @@ const Navbar = () => {
               <button
                 key={item.title}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-700 hover:text-primary transition-colors font-medium"
               >
                 {item.title}
               </button>
@@ -52,7 +52,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 animate-fade-in">
             {menuItems.map((item) => (
               <button
                 key={item.title}
