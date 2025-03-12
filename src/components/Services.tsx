@@ -8,21 +8,21 @@ const services = [
     description:
       "Professionaalne puhastusteenus nii era- kui äriklientidele. Tagame puhtad ja hooldatud pinnad. Meie kogenud meeskond kasutab kaasaegseid seadmeid ja vahendeid, et pakkuda kvaliteetset tulemust.",
     icon: Home,
-    image: "/lovable-uploads/c90350d8-5b7b-43eb-b19c-20fa989af30f.png"
+    image: "/lovable-uploads/4f96b59c-b99a-4736-a3dd-3004818f7f39.png"
   },
   {
     title: "Tänavakivide paigaldus",
     description:
       "Kvaliteetne tänavakivide paigaldus ja hooldus. Loome kestvaid ja esteetilisi lahendusi. Pakume mitmesuguseid tänavakivide mustreid ja värve, et sobituda teie kodu või ärihoone stiiliga.",
     icon: BrickWall,
-    image: "/lovable-uploads/83a0d81d-f409-4c30-b88e-8b4985382bc6.png"
+    image: "/lovable-uploads/c90350d8-5b7b-43eb-b19c-20fa989af30f.png"
   },
   {
     title: "Haljastustööd",
     description:
       "Terviklikud haljastuslahendused. Hoiame teie aia ja ümbruse korras ning kaunina. Meie teenused hõlmavad taimede istutamist, muru hooldust, puude ja põõsaste lõikamist ning üldist maastikukujundust.",
     icon: Leaf,
-    image: "/lovable-uploads/4f96b59c-b99a-4736-a3dd-3004818f7f39.png"
+    image: "/lovable-uploads/83a0d81d-f409-4c30-b88e-8b4985382bc6.png"
   },
 ];
 
