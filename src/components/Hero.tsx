@@ -8,13 +8,17 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center bg-gradient-to-r from-gray-50 to-gray-100 pt-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black opacity-40"></div>
+      </div>
+      <div className="container mx-auto px-4 z-10">
+        <div className="max-w-3xl backdrop-blur-sm bg-white/30 p-8 rounded-lg">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             Professionaalne{" "}
             <span className="text-primary">puhastusteenistus</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-800 mb-8 font-medium">
             Pakume kvaliteetseid kinnisvara hooldus- ja puhastusteenuseid ning
             tegeleme tänavakivide ja haljastustöödega.
           </p>
@@ -30,6 +34,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("services")}
+              className="bg-white/70 hover:bg-white"
             >
               Vaata teenuseid
             </Button>
