@@ -34,26 +34,32 @@ const Services = () => {
         <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
           Pakume laia valikut kvaliteetseid teenuseid, mis on kohandatud vastavalt teie vajadustele
         </p>
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Card key={service.title} className="border-2 hover:border-primary transition-colors overflow-hidden group">
-              <div className="h-48 overflow-hidden relative">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                  <service.icon className="w-16 h-16 text-white" />
+        
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-12">
+          {services.map((service, index) => (
+            <div key={service.title} className="flex flex-col">
+              <div className="bg-gray-50 p-4 rounded-t-2xl shadow-sm">
+                <div className="relative overflow-hidden rounded-xl aspect-[4/3] group shadow-md">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80 group-hover:opacity-70 transition-opacity">
+                    <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center">
+                      <service.icon className="w-8 h-8 text-primary mr-3 flex-shrink-0" />
+                      <h3 className="text-white text-xl font-semibold">{service.title}</h3>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{service.description}</p>
-              </CardContent>
-            </Card>
+              
+              <Card className="border-t-0 rounded-t-none h-full flex-grow">
+                <CardContent className="pt-5">
+                  <p className="text-gray-600">{service.description}</p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
