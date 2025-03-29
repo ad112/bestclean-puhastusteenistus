@@ -51,9 +51,9 @@ const References = () => {
               className="block hover:no-underline group"
             >
               <Card className="hover:shadow-lg transition-shadow h-full border-2 border-transparent hover:border-primary group-hover:scale-[1.02] transition-all duration-200">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col h-full">
-                    <div className="space-y-4 flex-grow">
+                <CardContent className="pt-6 h-full">
+                  <div className="flex flex-col justify-between h-full">
+                    <div className="space-y-4">
                       <div className="flex items-center space-x-1">
                         {[...Array(reference.rating)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
