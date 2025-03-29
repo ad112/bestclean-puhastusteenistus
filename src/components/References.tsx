@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 
 const references = [
   {
@@ -48,9 +48,9 @@ const References = () => {
               target="_blank"
               rel="noopener noreferrer"
               key={index}
-              className="block hover:no-underline"
+              className="block hover:no-underline group"
             >
-              <Card className="hover:shadow-lg transition-shadow h-full">
+              <Card className="hover:shadow-lg transition-shadow h-full border-2 border-transparent hover:border-primary group-hover:scale-[1.02] transition-all duration-200">
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                     <div className="flex items-center space-x-1">
@@ -63,6 +63,10 @@ const References = () => {
                       <p className="font-semibold">{reference.name}</p>
                       <p className="text-gray-500">{reference.project}</p>
                       <p className="text-gray-400 text-xs mt-1">{reference.date}</p>
+                    </div>
+                    <div className="flex items-center justify-end text-primary transition-transform group-hover:translate-x-1">
+                      <span className="mr-1 text-sm font-medium">Loe rohkem</span>
+                      <ExternalLink className="w-4 h-4" />
                     </div>
                   </div>
                 </CardContent>
