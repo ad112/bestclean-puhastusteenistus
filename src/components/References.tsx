@@ -52,19 +52,21 @@ const References = () => {
             >
               <Card className="hover:shadow-lg transition-shadow h-full border-2 border-transparent hover:border-primary group-hover:scale-[1.02] transition-all duration-200">
                 <CardContent className="pt-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-1">
-                      {[...Array(reference.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
+                  <div className="flex flex-col h-full">
+                    <div className="space-y-4 flex-grow">
+                      <div className="flex items-center space-x-1">
+                        {[...Array(reference.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-gray-600 italic">{reference.text}</p>
+                      <div className="text-sm">
+                        <p className="font-semibold">{reference.name}</p>
+                        <p className="text-gray-500">{reference.project}</p>
+                        <p className="text-gray-400 text-xs mt-1">{reference.date}</p>
+                      </div>
                     </div>
-                    <p className="text-gray-600 italic">{reference.text}</p>
-                    <div className="text-sm">
-                      <p className="font-semibold">{reference.name}</p>
-                      <p className="text-gray-500">{reference.project}</p>
-                      <p className="text-gray-400 text-xs mt-1">{reference.date}</p>
-                    </div>
-                    <div className="flex items-center justify-end text-primary transition-transform group-hover:translate-x-1">
+                    <div className="flex items-center justify-end text-primary transition-transform group-hover:translate-x-1 mt-4">
                       <span className="mr-1 text-sm font-medium">Loe rohkem</span>
                       <ExternalLink className="w-4 h-4" />
                     </div>
