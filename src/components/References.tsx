@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
@@ -29,7 +30,8 @@ const References = () => {
   return (
     <section id="references" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Klientide tagasiside</h2>
+        <h2 className="text-3xl font-bold text-center mb-2">Klientide tagasiside</h2>
+        <p className="text-center text-gray-600 mb-12">Vaata lähemalt meie renomeed hange.ee keskkonnas</p>
         <div className="grid md:grid-cols-3 gap-8">
           {references.map((reference, index) => (
             <a 
